@@ -25,7 +25,7 @@ ccImageLightbox.init();
 
 SCSS
 ```scss
-@import "../node_modules/cc-image-lightbox/dist/cc-image-lightbox";
+@import "../node_modules/cc-image-lightbox/src/index";
 ```
 
 
