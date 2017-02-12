@@ -23,7 +23,7 @@ ccImageLightbox.init();
 
 **Browser**
 ```html
-<script src="cc-image-lightbox.min.js"></script>
+<script src="./dist/cc-image-lightbox.js"></script>
 <script>
   var ccImageLightbox = new CCImageLightbox();
   ccImageLightbox.init();
