@@ -1,6 +1,6 @@
 {
   "name": "cc-image-lightbox",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple image lightbox without dependencies for modern browsers",
   "main": "src/index.js",
   "repository": {
