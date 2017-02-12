@@ -3,7 +3,7 @@
 > Single Purpose Tool with predefined look and behaviour.
 
  * Uses **CSS3** features like [vh](http://caniuse.com/#feat=viewport-units) and [calc](http://caniuse.com/#feat=calc)
- * Uses **ECMAScript 2016** features like [const](http://caniuse.com/#feat=const), [let](http://caniuse.com/#feat=let) and [Arrow functions]( * Uses **ECMAScript 2016** features like [const](http://caniuse.com/#feat=const), [let](http://caniuse.com/#feat=let) and [arrow functions]( * Uses **ECMAScript 2016** features like [const](http://caniuse.com/#feat=const), [let](http://caniuse.com/#feat=let) and [arrow functions](http://caniuse.com/#feat=arrow-functions) 
+ * Uses **ECMAScript 2016** features like [const](http://caniuse.com/#feat=const), [let](http://caniuse.com/#feat=let) and [Arrow functions](http://caniuse.com/#feat=arrow-functions) 
 
 
 ## Install
