@@ -14,30 +14,20 @@ $ npm install --save cc-image-lightbox
 
 ## Usage
 
-**Browserify/Webpack**
+**Webpack es6**
 
 JS
 ```js
-const ccImageLightbox = require('cc-image-lightbox');
+import CCImageLightbox from 'cc-image-lightbox';
+const ccImageLightbox = new CCImageLightbox();
 ccImageLightbox.init();
 ```
 
 SCSS
 ```scss
-@import "../node_modules/cc-image-lightbox/dist/cc-image-lightbox.css";
+@import "../node_modules/cc-image-lightbox/dist/cc-image-lightbox";
 ```
 
-----
-
-**Browser**
-```html
-<link href="./dist/cc-image-lightbox.css" rel="stlyesheet" />
-<script src="./dist/cc-image-lightbox.js"></script>
-<script>
-  var ccImageLightbox = new CCImageLightbox();
-  ccImageLightbox.init();
-</script>
-```
 
 ## License
 

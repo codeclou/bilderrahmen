@@ -2,18 +2,11 @@
   "name": "cc-image-lightbox",
   "version": "0.0.2",
   "description": "A simple image lightbox without dependencies for modern browsers",
-  "main": "dist/cc-image-lightbox.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/codeclou/cc-image-lightbox.git"
   },
-  "scripts": {
-    "bundle": "webpack --optimize-ocurrence-order"
-  },
   "author": "codeclou",
-  "license": "MIT",
-  "devDependencies": {
-    "uglify-js": "^2.7.5",
-    "webpack": "^1.14.0"
-  }
+  "license": "MIT"
 }

@@ -1,4 +1,4 @@
-module.exports = class CCImageLightbox {
+class CCImageLightbox {
     constructor() {}
 
     ccCloseImageLightbox() {
@@ -114,3 +114,5 @@ module.exports = class CCImageLightbox {
 
     };
 };
+
+export default CCImageLightbox;
