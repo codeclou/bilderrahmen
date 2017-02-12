@@ -1,0 +1,15 @@
+{
+  "name": "cc-image-lightbox",
+  "version": "0.0.1",
+  "description": "A simple image lightbox without dependencies for modern browsers",
+  "main": "dist/cc-image-lightbox.js",
+  "scripts": {
+    "bundle": "webpack --optimize-ocurrence-order"
+  },
+  "author": "codeclou",
+  "license": "MIT",
+  "devDependencies": {
+    "uglify-js": "^2.7.5",
+    "webpack": "^1.14.0"
+  }
+}
