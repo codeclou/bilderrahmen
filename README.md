@@ -1,9 +1,8 @@
 [![](https://codeclou.github.io/cc-image-lightbox/img/cc-image-lightbox-logo.svg)](https://github.com/codeclou/cc-image-lightbox)
 
-> Single Purpose Tool with predefined look and behaviour.
+> Lightweight single purpose vanilla-JS image lightbox crafted with CSS3 and inline SVG icons Edit
 
- * Uses **CSS3** features like [vh](http://caniuse.com/#feat=viewport-units) and [calc](http://caniuse.com/#feat=calc)
- * Uses **ECMAScript 2016** features like [const](http://caniuse.com/#feat=const), [let](http://caniuse.com/#feat=let) and [Arrow functions](http://caniuse.com/#feat=arrow-functions) 
+Crafted for modern browsers that support CSS3 features like [vh](http://caniuse.com/#feat=viewport-units) and [calc](http://caniuse.com/#feat=calc).
 
 
 ## Install
@@ -13,7 +12,6 @@ $ npm install --save cc-image-lightbox
 ```
 
 ## Usage
-
 
 **Browser**
 
