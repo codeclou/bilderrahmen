@@ -2,11 +2,23 @@
   "name": "cc-image-lightbox",
   "version": "0.0.4",
   "description": "A simple image lightbox without dependencies for modern browsers",
-  "main": "src/index.js",
+  "main": "src/components.es6/ccImageLightbox.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/codeclou/cc-image-lightbox.git"
   },
   "author": "codeclou",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack && MINIFY=1 webpack --optimize-minimize"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.0",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1"
+  }
 }

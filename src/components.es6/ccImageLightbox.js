@@ -1,3 +1,5 @@
+import './ccImageLightbox.css';
+
 class CCImageLightbox {
     constructor() {}
 
