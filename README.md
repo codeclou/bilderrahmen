@@ -1,6 +1,6 @@
 [![](https://codeclou.github.io/cc-image-lightbox/img/cc-image-lightbox-logo.svg)](https://github.com/codeclou/cc-image-lightbox)
 
-> Lightweight single purpose vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers.
+> Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers
 
 <p>&nbsp;</p>
 
