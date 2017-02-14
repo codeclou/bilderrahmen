@@ -1,4 +1,4 @@
-# cc-image-lightbox
+[![](https://codeclou.github.io/cc-image-lightbox/img/cc-image-lightbox-logo.svg)](https://github.com/codeclou/cc-image-lightbox)
 
 > Single Purpose Tool with predefined look and behaviour.
 
