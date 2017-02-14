@@ -2,12 +2,17 @@
 
 > Lightweight single purpose vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers.
 
+**:black_circle: DEMO:** [codeclou.github.io/cc-image-lightbox/](https://codeclou.github.io/cc-image-lightbox/)
+
+<p>&nbsp;</p>
 
 ## Install
 
 ```
 $ npm install --save cc-image-lightbox
 ```
+
+<p>&nbsp;</p>
 
 ## Usage
 
