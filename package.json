@@ -2,7 +2,6 @@
   "name": "cc-image-lightbox",
   "version": "0.0.7",
   "description": "Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers",
-  "main": "./build/cc-image-lightbox.es5-module.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/codeclou/cc-image-lightbox.git"
@@ -11,8 +10,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run build:browser && npm run build:module",
-    "build:browser": "webpack --config webpack.browser.config.js && MINIFY=1 webpack --optimize-minimize --config webpack.browser.config.js",
-    "build:module": "babel ./src/components.es6/ccImageLightbox.js --out-file build/cc-image-lightbox.es5-module.js"
+    "build:browser": "webpack --config webpack.browser.config.js && MINIFY=1 webpack --optimize-minimize --config webpack.browser.config.js"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
