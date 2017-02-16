@@ -1,6 +1,6 @@
 {
   "name": "cc-image-lightbox",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers",
   "repository": {
     "type": "git",
