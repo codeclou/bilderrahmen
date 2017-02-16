@@ -23,7 +23,7 @@ $ npm install --save cc-image-lightbox
 ```html
 <html>
 <body>
-  <link href="../build/cc-image-lightbox.css" rel="stylesheet" />
+  <link href="../build/cc-image-lightbox.min.css" rel="stylesheet" />
 
   <a href="https://codeclou.github.io/cc-image-lightbox/demo/demo-gallery-02/images/DSC05104.JPG" target="_blank"><img
         src="https://codeclou.github.io/cc-image-lightbox/demo/demo-gallery-02/thumbs/DSC05104.JPG"
@@ -31,7 +31,7 @@ $ npm install --save cc-image-lightbox
         data-cc-title="Image Four"
   /></a>
 
-  <script src="../build/cc-image-lightbox.js"></script>
+  <script src="../build/cc-image-lightbox.min.js"></script>
 </body>
 </html>
 ```
@@ -41,16 +41,17 @@ $ npm install --save cc-image-lightbox
 JS
 ```js
 import CCImageLightbox from 'cc-image-lightbox';
-const ccImageLightbox = new CCImageLightbox();
-ccImageLightbox.init();
+
+new CCImageLightbox();
 ```
+
 If you use `css-loader` the css is imported by the JS component already.
 
 ----
 
 SCSS
 ```scss
-@import "../node_modules/cc-image-lightbox/dist/cc-image-lightbox";
+@import "../node_modules/cc-image-lightbox/build/cc-image-lightbox";
 ```
 
 <p>&nbsp;</p>

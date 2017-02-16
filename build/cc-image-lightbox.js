@@ -86,76 +86,81 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var CCImageLightbox = function () {
     function CCImageLightbox() {
         _classCallCheck(this, CCImageLightbox);
+
+        this.store = [];
+        this.init();
     }
 
     _createClass(CCImageLightbox, [{
-        key: 'ccCloseImageLightbox',
-        value: function ccCloseImageLightbox() {
+        key: '_getGallery',
+        value: function _getGallery(galleryId) {
+            if (this.store[galleryId] === undefined || this.store[galleryId] === null) {
+                this.store[galleryId] = [];
+            }
+            return this.store[galleryId];
+        }
+    }, {
+        key: '_getImage',
+        value: function _getImage(galleryId, index) {
+            var gallery = this._getGallery(galleryId);
+            if (gallery[index] === undefined || gallery[index] === null) {
+                gallery[index] = {};
+            }
+            return gallery[index];
+        }
+    }, {
+        key: '_isImage',
+        value: function _isImage(galleryId, index) {
+            var image = this._getImage(galleryId, index);
+            return !(image.src === undefined || image.src === null);
+        }
+    }, {
+        key: '_renderNextOrPreviousButton',
+        value: function _renderNextOrPreviousButton(galleryId, index, direction) {
+            var self = this;
+            var button = document.createElement('div');
+            button.setAttribute('class', 'cc-lightbox--' + direction);
+            if (self._isImage(galleryId, index)) {
+                button.setAttribute('class', direction === 'left' ? 'cc-lightbox--left cc-lightbox--left--has-previous' : 'cc-lightbox--right cc-lightbox--right--has-next');
+                button.onclick = function () {
+                    return self.open(galleryId, index);
+                };
+            }
+            return button;
+        }
+    }, {
+        key: 'closeIfOpen',
+        value: function closeIfOpen() {
             var lightboxWrapper = document.getElementsByClassName('cc-lightbox-wrapper');
             if (lightboxWrapper[0] !== undefined && lightboxWrapper[0] !== null) {
                 lightboxWrapper[0].remove();
             }
         }
     }, {
-        key: 'ccOpenImageLightbox',
-        value: function ccOpenImageLightbox(galleryId, index) {
-            this.ccCloseImageLightbox();
-            this.ccCreateImageLightbox(galleryId, index);
+        key: 'open',
+        value: function open(galleryId, index) {
+            this.closeIfOpen();
+            this.create(galleryId, index);
         }
     }, {
-        key: 'ccCreateImageLightbox',
-        value: function ccCreateImageLightbox(galleryId, index) {
+        key: 'create',
+        value: function create(galleryId, index) {
             var self = this;
-            console.log('ccCreateImageLightbox() with ' + galleryId + ' ' + index);
-
-            var lightboxStore = window.ccImageLightboxStore;
-            var imgSrc = lightboxStore[galleryId][index].src;
-            var title = lightboxStore[galleryId][index].title;
-            var lightboxDiv = document.createElement('div');
-            lightboxDiv.setAttribute('class', 'cc-lightbox-wrapper');
-            lightboxDiv.setAttribute('data-cc-lightbox-gallery-id', galleryId);
-            lightboxDiv.onclick = function () {
-                console.log('clicked');
-                //this.remove();
-            };
-            var renderPreviousButton = function renderPreviousButton(galleryId, index) {
-                var previousIndex = parseInt(index, 10) - 1;
-                var button = document.createElement('div');
-                button.setAttribute('class', 'cc-lightbox--left');
-                if (lightboxStore[galleryId][previousIndex] !== undefined) {
-                    button.setAttribute('class', 'cc-lightbox--left cc-lightbox--left--has-previous');
-                    button.onclick = function () {
-                        console.log('clicked previous');
-                        self.ccOpenImageLightbox(galleryId, previousIndex);
-                    };
-                }
-                return button;
-            };
-            var renderNextButton = function renderNextButton(galleryId, index) {
-                var nextIndex = parseInt(index, 10) + 1;
-                var button = document.createElement('div');
-                button.setAttribute('class', 'cc-lightbox--right');
-                if (lightboxStore[galleryId][nextIndex] !== undefined) {
-                    button.setAttribute('class', 'cc-lightbox--right cc-lightbox--right--has-next');
-                    button.onclick = function () {
-                        console.log('clicked next');
-                        self.ccOpenImageLightbox(galleryId, nextIndex);
-                    };
-                }
-                return button;
-            };
-
+            var indexInt = parseInt(index, 10);
+            var wrapper = document.createElement('div');
+            wrapper.setAttribute('class', 'cc-lightbox-wrapper');
+            wrapper.setAttribute('data-cc-lightbox-gallery-id', galleryId);
             var topBar = document.createElement('div');
             topBar.setAttribute('class', 'cc-lightbox--top');
-            topBar.innerHTML = '  <div class="cc-lightbox--top-title">' + title + '  </div>' + '  <div class="cc-lightbox--top-close" onclick="this.parentNode.parentNode.remove()">' + '  </div>';
-            lightboxDiv.appendChild(topBar);
-            lightboxDiv.appendChild(renderPreviousButton(galleryId, index));
+            topBar.innerHTML = '  <div class="cc-lightbox--top-title">' + self._getImage(galleryId, index).title;+'  </div>' + '  <div class="cc-lightbox--top-closeIfOpen" onclick="this.parentNode.parentNode.remove()">' + '  </div>';
+            wrapper.appendChild(topBar);
+            wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, indexInt - 1, 'left'));
             var image = document.createElement('div');
             image.setAttribute('class', 'cc-lightbox--image');
-            image.innerHTML = '  <div class="cc-lightbox--image-inner">' + '    <img src="' + imgSrc + '" class="cc-lightbox--image-img" />' + '  </div>';
-            lightboxDiv.appendChild(image);
-            lightboxDiv.appendChild(renderNextButton(galleryId, index));
-            document.body.appendChild(lightboxDiv);
+            image.innerHTML = '  <div class="cc-lightbox--image-inner">' + '    <img src="' + self._getImage(galleryId, index).src + '" ' + '         class="cc-lightbox--image-img" />' + '  </div>';
+            wrapper.appendChild(image);
+            wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, indexInt + 1, 'right'));
+            document.body.appendChild(wrapper);
             return false;
         }
     }, {
@@ -163,30 +168,20 @@ var CCImageLightbox = function () {
         value: function init() {
             var self = this;
             var lightboxElements = document.querySelectorAll('[data-cc-lightbox]');
-            window.ccImageLightboxStore = [];
 
             var _loop = function _loop(i) {
                 var lightboxElement = lightboxElements[i];
                 var galleryId = lightboxElement.getAttribute('data-cc-lightbox');
-                var lightboxDataTitle = lightboxElement.getAttribute('data-cc-title');
-                var lightboxImgSrc = lightboxElement.parentNode.getAttribute('href');
+                var nextIndex = self._getGallery(galleryId).length;
+                var nextImage = self._getImage(galleryId, nextIndex);
+                nextImage.title = lightboxElement.getAttribute('data-cc-title');
+                nextImage.src = lightboxElement.parentNode.getAttribute('href');
 
-                //
-                // FILL STORE
-                //
-                if (window.ccImageLightboxStore[galleryId] === undefined || window.ccImageLightboxStore[galleryId] === null) {
-                    window.ccImageLightboxStore[galleryId] = [];
-                }
-                var nextIndex = window.ccImageLightboxStore[galleryId].length;
-                window.ccImageLightboxStore[galleryId][nextIndex] = {
-                    title: lightboxDataTitle,
-                    src: lightboxImgSrc
-                };
                 //
                 // THUMBNAIL CLICK OPENS LIGHTBOX
                 //
                 lightboxElement.parentNode.onclick = function () {
-                    self.ccOpenImageLightbox(galleryId, nextIndex);
+                    self.open(galleryId, nextIndex);
                     return false;
                 };
             };
@@ -200,7 +195,7 @@ var CCImageLightbox = function () {
             //
             document.addEventListener('keydown', function (event) {
                 if (event.keyCode === 27) {
-                    self.ccCloseImageLightbox();
+                    self.closeIfOpen();
                 }
             }, false);
         }
@@ -232,11 +227,10 @@ var _ccImageLightbox2 = _interopRequireDefault(_ccImageLightbox);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ccImageLightbox = new _ccImageLightbox2.default(); /**
-                                                        * USED TO GENERATE A BROWSER VERSION WITH WEBPACK.
-                                                        */
-
-ccImageLightbox.init();
+new _ccImageLightbox2.default(); /**
+                                  * USED TO GENERATE A BROWSER VERSION WITH WEBPACK.
+                                  * SEE build/* FILES
+                                  */
 
 /***/ })
 /******/ ]);

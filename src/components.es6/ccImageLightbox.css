@@ -30,7 +30,7 @@
     height:3rem;
     width:3rem;
     cursor: pointer;
-    /* close.svg */
+    /* closeIfOpen.svg */
     background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMjciIHZpZXdCb3g9IjAgMCAyNzAgMjcwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0aXRsZT5jbG9zZTwvdGl0bGU+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsLW9wYWNpdHk9Ii4wMSIgZmlsbD0iI0Q4RDhEOCIgZD0iTTI3MCAwSDB2MjcwaDI3MHoiLz48cGF0aCBkPSJNMTA3LjQ2IDEzNC41NUwyMi44MiA0OC45MDQgNTEuODE0IDIybDgzLjU5NyA4NC4zNDdMMjE5LjAwOCAyMiAyNDggNDguOTA0bC04NC42MzggODUuNjQ2IDg0LjUxMyA4NS4yNy0yOC44NCAyOC4wMS0yNy4zMDgtMjguMDEtNTYuMzE2LTU2Ljk4NS01Ni4zMTYgNTYuOTg2LTI3LjMwOCAyOC4wMS0yOC44NC0yOC4wMSA4NC41MTMtODUuMjd6IiBzdHJva2U9IiM5Nzk3OTciIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0iI0ZGRiIvPjwvZz48L3N2Zz4=) center center no-repeat;
 }
 .cc-lightbox--left {
