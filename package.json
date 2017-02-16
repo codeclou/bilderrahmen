@@ -9,7 +9,7 @@
   "author": "codeclou",
   "license": "MIT",
   "scripts": {
-    "build": "npm run build:browser && npm run build:module",
+    "build": "npm run build:browser",
     "build:browser": "webpack --config webpack.browser.config.js && MINIFY=1 webpack --optimize-minimize --config webpack.browser.config.js"
   },
   "devDependencies": {
