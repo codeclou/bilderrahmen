@@ -1,5 +1,3 @@
-import './ccImageLightbox.css';
-
 class CCImageLightbox {
     constructor() {
         this.store = {

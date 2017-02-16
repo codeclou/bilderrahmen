@@ -36,6 +36,9 @@ $ npm install --save cc-image-lightbox
 </html>
 ```
 
+<p>&nbsp;</p>
+
+
 **Webpack es6**
 
 JS
@@ -45,13 +48,11 @@ import CCImageLightbox from 'cc-image-lightbox';
 new CCImageLightbox();
 ```
 
-If you use `css-loader` the css is imported by the JS component already.
-
 ----
 
-SCSS
-```scss
-@import "../node_modules/cc-image-lightbox/build/cc-image-lightbox";
+CSS
+```
+./node_modules/cc-image-lightbox/build/cc-image-lightbox.css
 ```
 
 <p>&nbsp;</p>
