@@ -87,11 +87,39 @@ var CCImageLightbox = function () {
     function CCImageLightbox() {
         _classCallCheck(this, CCImageLightbox);
 
-        this.store = [];
+        this.store = {
+            current: {
+                galleryId: null,
+                index: null
+            },
+            galleries: []
+        };
         this.init();
     }
 
     _createClass(CCImageLightbox, [{
+        key: '_setCurrentOpenImage',
+        value: function _setCurrentOpenImage(galleryId, index) {
+            this.store.current.galleryId = galleryId;
+            this.store.current.index = index;
+        }
+    }, {
+        key: '_getCurrentOpenImage',
+        value: function _getCurrentOpenImage() {
+            return this.store.current;
+        }
+    }, {
+        key: '_clearCurrentOpenImage',
+        value: function _clearCurrentOpenImage() {
+            this.store.current.galleryId = null;
+            this.store.current.index = null;
+        }
+    }, {
+        key: '_isCurrentOpenImage',
+        value: function _isCurrentOpenImage() {
+            return this.store.current.galleryId !== null;
+        }
+    }, {
         key: '_getGallery',
         value: function _getGallery(galleryId) {
             if (this.store[galleryId] === undefined || this.store[galleryId] === null) {
@@ -131,15 +159,18 @@ var CCImageLightbox = function () {
     }, {
         key: 'closeIfOpen',
         value: function closeIfOpen() {
+            var self = this;
             var lightboxWrapper = document.getElementsByClassName('cc-lightbox-wrapper');
             if (lightboxWrapper[0] !== undefined && lightboxWrapper[0] !== null) {
                 lightboxWrapper[0].remove();
             }
+            self._clearCurrentOpenImage();
         }
     }, {
         key: 'open',
         value: function open(galleryId, index) {
             this.closeIfOpen();
+            this._setCurrentOpenImage(galleryId, index);
             this.create(galleryId, index);
         }
     }, {
@@ -147,20 +178,49 @@ var CCImageLightbox = function () {
         value: function create(galleryId, index) {
             var self = this;
             var indexInt = parseInt(index, 10);
+
+            // WRAPPER
             var wrapper = document.createElement('div');
             wrapper.setAttribute('class', 'cc-lightbox-wrapper');
             wrapper.setAttribute('data-cc-lightbox-gallery-id', galleryId);
+            document.body.appendChild(wrapper);
+
+            // TOPBAR
             var topBar = document.createElement('div');
             topBar.setAttribute('class', 'cc-lightbox--top');
-            topBar.innerHTML = '  <div class="cc-lightbox--top-title">' + self._getImage(galleryId, index).title;+'  </div>' + '  <div class="cc-lightbox--top-closeIfOpen" onclick="this.parentNode.parentNode.remove()">' + '  </div>';
             wrapper.appendChild(topBar);
+
+            // TITLEBAR
+            var titleBar = document.createElement('div');
+            titleBar.setAttribute('class', 'cc-lightbox--top-title');
+            titleBar.innerHTML = self._getImage(galleryId, index).title;
+            topBar.appendChild(titleBar);
+
+            // CLOSEBUTTON
+            var closeButton = document.createElement('div');
+            closeButton.setAttribute('class', 'cc-lightbox--top-close');
+            closeButton.onclick = function () {
+                return self.closeIfOpen();
+            };
+            topBar.appendChild(closeButton);
+
+            // PREVIOUS BUTTON
             wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, indexInt - 1, 'left'));
+
+            // IMAGE
             var image = document.createElement('div');
             image.setAttribute('class', 'cc-lightbox--image');
-            image.innerHTML = '  <div class="cc-lightbox--image-inner">' + '    <img src="' + self._getImage(galleryId, index).src + '" ' + '         class="cc-lightbox--image-img" />' + '  </div>';
             wrapper.appendChild(image);
+            var imageInner = document.createElement('div');
+            imageInner.setAttribute('class', 'cc-lightbox--image-inner');
+            image.appendChild(imageInner);
+            var img = document.createElement('img');
+            img.setAttribute('src', self._getImage(galleryId, index).src);
+            img.setAttribute('class', 'cc-lightbox--image-img');
+            imageInner.appendChild(img);
+
+            // NEXT BUTTON
             wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, indexInt + 1, 'right'));
-            document.body.appendChild(wrapper);
             return false;
         }
     }, {
@@ -196,6 +256,26 @@ var CCImageLightbox = function () {
             document.addEventListener('keydown', function (event) {
                 if (event.keyCode === 27) {
                     self.closeIfOpen();
+                }
+                if (event.keyCode === 37) {
+                    // left
+                    if (self._isCurrentOpenImage()) {
+                        var current = self._getCurrentOpenImage();
+                        if (self._isImage(current.galleryId, current.index - 1)) {
+                            console.log('left');
+                            self.open(current.galleryId, current.index - 1);
+                        }
+                    }
+                }
+                if (event.keyCode === 39) {
+                    // right
+                    if (self._isCurrentOpenImage()) {
+                        var _current = self._getCurrentOpenImage();
+                        if (self._isImage(_current.galleryId, _current.index + 1)) {
+                            console.log('right');
+                            self.open(_current.galleryId, _current.index + 1);
+                        }
+                    }
                 }
             }, false);
         }
