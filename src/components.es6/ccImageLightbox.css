@@ -74,8 +74,13 @@
     height:100%;
     width: 100%;
 }
+.cc-lightbox--image-inner-wrap {
+    height:100%;
+    width: 100%;
+}
 .cc-lightbox--image-img {
-    height:auto;
     max-height: 100%;
     max-width: 100%;
+    height:auto;
+    width:auto;
 }

@@ -109,10 +109,13 @@ class CCImageLightbox {
         const imageInner = document.createElement('div');
         imageInner.setAttribute('class', 'cc-lightbox--image-inner');
         image.appendChild(imageInner);
+        const imageInnerWrap = document.createElement('div');
+        imageInnerWrap.setAttribute('class', 'cc-lightbox--image-inner-wrap');
+        imageInner.appendChild(imageInnerWrap);
         const img = document.createElement('img');
         img.setAttribute('src', self._getImage(galleryId, index).src);
         img.setAttribute('class', 'cc-lightbox--image-img');
-        imageInner.appendChild(img);
+        imageInnerWrap.appendChild(img);
 
         // NEXT BUTTON
         wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, (indexInt + 1), 'right'));
