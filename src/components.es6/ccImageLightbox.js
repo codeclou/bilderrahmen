@@ -56,6 +56,10 @@ class CCImageLightbox {
         return button;
     };
 
+    _generateId(galleryId, index) {
+        return 'cc-lightbox--' + galleryId + '--' + index;
+    }
+
 
     closeIfOpen() {
         const self = this;
@@ -113,12 +117,17 @@ class CCImageLightbox {
         imageInnerWrap.setAttribute('class', 'cc-lightbox--image-inner-wrap');
         imageInner.appendChild(imageInnerWrap);
         const img = document.createElement('img');
+        img.onload = function () {
+            image.setAttribute('class', 'cc-lightbox--image cc-lightbox--image-loaded');
+        };
         img.setAttribute('src', self._getImage(galleryId, index).src);
         img.setAttribute('class', 'cc-lightbox--image-img');
+        img.setAttribute('id', self._generateId(galleryId, index));
         imageInnerWrap.appendChild(img);
 
         // NEXT BUTTON
         wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, (indexInt + 1), 'right'));
+
         return false;
     }
 

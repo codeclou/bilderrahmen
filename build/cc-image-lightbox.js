@@ -155,6 +155,11 @@ var CCImageLightbox = function () {
             return button;
         }
     }, {
+        key: '_generateId',
+        value: function _generateId(galleryId, index) {
+            return 'cc-lightbox--' + galleryId + '--' + index;
+        }
+    }, {
         key: 'closeIfOpen',
         value: function closeIfOpen() {
             var self = this;
@@ -216,12 +221,17 @@ var CCImageLightbox = function () {
             imageInnerWrap.setAttribute('class', 'cc-lightbox--image-inner-wrap');
             imageInner.appendChild(imageInnerWrap);
             var img = document.createElement('img');
+            img.onload = function () {
+                image.setAttribute('class', 'cc-lightbox--image cc-lightbox--image-loaded');
+            };
             img.setAttribute('src', self._getImage(galleryId, index).src);
             img.setAttribute('class', 'cc-lightbox--image-img');
+            img.setAttribute('id', self._generateId(galleryId, index));
             imageInnerWrap.appendChild(img);
 
             // NEXT BUTTON
             wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, indexInt + 1, 'right'));
+
             return false;
         }
     }, {
