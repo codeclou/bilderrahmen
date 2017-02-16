@@ -262,7 +262,6 @@ var CCImageLightbox = function () {
                     if (self._isCurrentOpenImage()) {
                         var current = self._getCurrentOpenImage();
                         if (self._isImage(current.galleryId, current.index - 1)) {
-                            console.log('left');
                             self.open(current.galleryId, current.index - 1);
                         }
                     }
@@ -272,7 +271,6 @@ var CCImageLightbox = function () {
                     if (self._isCurrentOpenImage()) {
                         var _current = self._getCurrentOpenImage();
                         if (self._isImage(_current.galleryId, _current.index + 1)) {
-                            console.log('right');
                             self.open(_current.galleryId, _current.index + 1);
                         }
                     }

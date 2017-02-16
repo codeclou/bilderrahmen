@@ -153,7 +153,6 @@ class CCImageLightbox {
                 if (self._isCurrentOpenImage()) {
                     const current = self._getCurrentOpenImage();
                     if (self._isImage(current.galleryId, current.index - 1)) {
-                        console.log('left');
                         self.open(current.galleryId, current.index - 1);
                     }
                 }
@@ -162,7 +161,6 @@ class CCImageLightbox {
                 if (self._isCurrentOpenImage()) {
                     const current = self._getCurrentOpenImage();
                     if (self._isImage(current.galleryId, current.index + 1)) {
-                        console.log('right');
                         self.open(current.galleryId, current.index + 1);
                     }
                 }
