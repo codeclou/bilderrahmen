@@ -1,6 +1,13 @@
 # Howto Publish
 
-INFO: jsdelivr uses github `build/*` files
+INFO: jsdelivr/unpkg.com uses github `build/*` files
+
+(0) publish to npm (use because of proxy)
+
+```
+npm --registry https://registry.npmjs.org/ login
+npm --registry https://registry.npmjs.org/ publish
+```
 
 (1) Create Git Tag
 
