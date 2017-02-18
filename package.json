@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/codeclou/cc-image-lightbox.git"
   },
+  "main": "./build/cc-image-lightbox.esm.js",
   "author": "codeclou",
   "license": "MIT",
   "scripts": {
