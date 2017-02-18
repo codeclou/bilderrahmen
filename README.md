@@ -28,6 +28,34 @@
 </html>
 ```
 
+**ESM and SystemJS** with ES6 babel transpilation
+
+```html
+<html>
+<body>
+<link href="https://cdn.rawgit.com/codeclou/cc-image-lightbox/0.0.10/build/cc-image-lightbox.min.css" rel="stylesheet" />
+<script src="https://cdn.rawgit.com/systemjs/systemjs/0.20.9/dist/system.js"></script>
+<script>
+    SystemJS.config({
+        map: {
+            'plugin-babel': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/plugin-babel.js',
+            'systemjs-babel-build': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/systemjs-babel-browser.js',
+            'cc-image-lightbox': 'https://cdn.rawgit.com/codeclou/cc-image-lightbox/0.0.10/build/cc-image-lightbox.esm.js'
+        },
+        transpiler: 'plugin-babel'
+    });
+    SystemJS.import('./main.js');
+</script>
+</body>
+</html>
+```
+
+`main.js`
+```js
+import CCImageLightbox from 'cc-image-lightbox';
+
+new CCImageLightbox();
+```
 
 <p>&nbsp;</p>
 
