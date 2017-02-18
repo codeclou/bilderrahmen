@@ -15,7 +15,7 @@
 ```html
 <html>
 <body>
-  <link href="https://unpkg.com/cc-image-lightbox@0.0.9/build/cc-image-lightbox.min.css" rel="stylesheet" />
+  <link href="https://cdn.rawgit.com/codeclou/cc-image-lightbox/0.0.10/build/cc-image-lightbox.min.css" rel="stylesheet" />
 
   <a href="https://codeclou.github.io/cc-image-lightbox/demo/demo-gallery-02/images/DSC05104.JPG" target="_blank"><img
         src="https://codeclou.github.io/cc-image-lightbox/demo/demo-gallery-02/thumbs/DSC05104.JPG"
@@ -23,7 +23,7 @@
         data-cc-title="Image Four"
   /></a>
 
-  <script src="https://unpkg.com/cc-image-lightbox@0.0.9/build/cc-image-lightbox.min.js"></script>
+  <script src="https://cdn.rawgit.com/codeclou/cc-image-lightbox/0.0.10/build/cc-image-lightbox.min.js"></script>
 </body>
 </html>
 ```
