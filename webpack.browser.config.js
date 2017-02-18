@@ -8,7 +8,7 @@ var MINIFY = JSON.parse(process.env.MINIFY || '0');
 var jsExtension = MINIFY ? '.min.js' : '.js';
 var cssExtension = MINIFY ? '.min.css' : '.css';
 module.exports = {
-    entry: './src/build.browser.js',
+    entry: './webpack.browser.main.js',
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'cc-image-lightbox' + jsExtension
