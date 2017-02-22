@@ -7,7 +7,7 @@
 **:black_circle: DEMO:** [codeclou.github.io/cc-image-lightbox/](https://codeclou.github.io/cc-image-lightbox/)
 
 ------
-**:black_circle: CDN:** [sdelivr.com/projects/cc-image-lightbox](http://www.jsdelivr.com/projects/cc-image-lightbox)
+**:black_circle: CDN:** [jsdelivr.com/projects/cc-image-lightbox](http://www.jsdelivr.com/projects/cc-image-lightbox)
 
 <p>&nbsp;</p>
 
