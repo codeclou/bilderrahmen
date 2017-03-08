@@ -4,7 +4,7 @@
 
 <p>&nbsp;</p>
 
-**:black_circle: DEMO:** [codeclou.github.io/bilderrahmen/](https://codeclou.github.io/bilderrahmen/)
+**:sparkles: [DEMO](https://codeclou.github.io/bilderrahmen/)**
 
 
 <p>&nbsp;</p>
