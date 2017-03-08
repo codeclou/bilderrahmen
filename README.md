@@ -1,13 +1,11 @@
-[![](https://codeclou.github.io/cc-image-lightbox/img/cc-image-lightbox-logo.svg)](https://github.com/codeclou/cc-image-lightbox)
+[![](https://codeclou.github.io/bilderrahmen/img/bilderrahmen-logo.svg)](https://github.com/codeclou/bilderrahmen)
 
 > Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers
 
 <p>&nbsp;</p>
 
-**:black_circle: DEMO:** [codeclou.github.io/cc-image-lightbox/](https://codeclou.github.io/cc-image-lightbox/)
+**:black_circle: DEMO:** [codeclou.github.io/bilderrahmen/](https://codeclou.github.io/bilderrahmen/)
 
-------
-**:black_circle: CDN:** [jsdelivr.com/projects/cc-image-lightbox](http://www.jsdelivr.com/projects/cc-image-lightbox)
 
 <p>&nbsp;</p>
 
@@ -18,15 +16,15 @@
 ```html
 <html>
 <body>
-  <link href="https://cdn.jsdelivr.net/cc-image-lightbox/0.0.10/cc-image-lightbox.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/bilderrahmen@0.1.0/dist/bilderrahmen.min.css" rel="stylesheet" />
 
-  <a href="https://codeclou.github.io/cc-image-lightbox/demo/demo-gallery-02/images/DSC05104.JPG" target="_blank"><img
-        src="https://codeclou.github.io/cc-image-lightbox/demo/demo-gallery-02/thumbs/DSC05104.JPG"
+  <a href="https://codeclou.github.io/bilderrahmen/demo/demo-gallery-02/images/DSC05104.JPG" target="_blank"><img
+        src="https://codeclou.github.io/bilderrahmen/demo/demo-gallery-02/thumbs/DSC05104.JPG"
         data-bilderrahmen="gallery-02"
         data-bilderrahmen-title="Image Four"
   /></a>
 
-  <script src="https://cdn.jsdelivr.net/cc-image-lightbox/0.0.10/cc-image-lightbox.min.js"></script>
+  <script src="https://unpkg.com/bilderrahmen@0.1.0/dist/bilderrahmen.min.js"></script>
 </body>
 </html>
 ```
@@ -36,14 +34,14 @@
 ```html
 <html>
 <body>
-<link href="https://cdn.jsdelivr.net/cc-image-lightbox/0.0.10/cc-image-lightbox.min.css" rel="stylesheet" />
+<link href="https://unpkg.com/bilderrahmen@0.1.0/dist/bilderrahmen.min.css" rel="stylesheet" />
 <script src="https://cdn.rawgit.com/systemjs/systemjs/0.20.9/dist/system.js"></script>
 <script>
     SystemJS.config({
         map: {
             'plugin-babel': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/plugin-babel.js',
             'systemjs-babel-build': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/systemjs-babel-browser.js',
-            'cc-image-lightbox': 'https://cdn.jsdelivr.net/cc-image-lightbox/0.0.10/cc-image-lightbox.esm.js'
+            'bilderrahmen': 'https://unpkg.com/bilderrahmen@0.1.0/dist/bilderrahmen.esm.js'
         },
         transpiler: 'plugin-babel'
     });
