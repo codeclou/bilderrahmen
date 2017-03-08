@@ -10,8 +10,8 @@ var cssExtension = MINIFY ? '.min.css' : '.css';
 module.exports = {
     entry: './webpack.browser.main.js',
     output: {
-        path: path.join(__dirname, 'build'),
-        filename: 'cc-image-lightbox' + jsExtension
+        path: path.join(__dirname, 'dist'),
+        filename: 'bilderrahmen' + jsExtension
     },
     module: {
         loaders: [
@@ -26,7 +26,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new ExtractTextPlugin('cc-image-lightbox' + cssExtension)
+        new ExtractTextPlugin('bilderrahmen' + cssExtension)
     ]
 
 };

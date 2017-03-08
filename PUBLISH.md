@@ -1,7 +1,5 @@
 # Howto Publish
 
-INFO: jsdelivr/unpkg.com uses github `build/*` files
-
 (0) publish to npm (use because of proxy)
 
 ```

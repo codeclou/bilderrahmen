@@ -1,4 +1,4 @@
-class CCImageLightbox {
+class Bilderrahmen {
     constructor() {
         this.store = {
             current: {
@@ -48,22 +48,22 @@ class CCImageLightbox {
     _renderNextOrPreviousButton(galleryId, index, direction) {
         var self = this;
         const button  = document.createElement('div');
-        button.setAttribute('class', 'cc-lightbox--' + direction);
+        button.setAttribute('class', 'bilderrahmen--' + direction);
         if (self._isImage(galleryId, index)) {
-            button.setAttribute('class', direction === 'left' ? 'cc-lightbox--left cc-lightbox--left--has-previous' : 'cc-lightbox--right cc-lightbox--right--has-next');
+            button.setAttribute('class', direction === 'left' ? 'bilderrahmen--left bilderrahmen--left--has-previous' : 'bilderrahmen--right bilderrahmen--right--has-next');
             button.onclick = () => self.open(galleryId, index);
         }
         return button;
     };
 
     _generateId(galleryId, index) {
-        return 'cc-lightbox--' + galleryId + '--' + index;
+        return 'bilderrahmen--' + galleryId + '--' + index;
     }
 
 
     closeIfOpen() {
         const self = this;
-        const lightboxWrapper = document.getElementsByClassName('cc-lightbox-wrapper');
+        const lightboxWrapper = document.getElementsByClassName('bilderrahmen-wrapper');
         if (lightboxWrapper[0] !== undefined && lightboxWrapper[0] !== null) {
             lightboxWrapper[0].remove();
         }
@@ -82,24 +82,24 @@ class CCImageLightbox {
 
         // WRAPPER
         const wrapper  = document.createElement('div');
-        wrapper.setAttribute('class', 'cc-lightbox-wrapper');
-        wrapper.setAttribute('data-cc-lightbox-gallery-id', galleryId);
+        wrapper.setAttribute('class', 'bilderrahmen-wrapper');
+        wrapper.setAttribute('data-bilderrahmen-gallery-id', galleryId);
         document.body.appendChild(wrapper);
 
         // TOPBAR
         const topBar  = document.createElement('div');
-        topBar.setAttribute('class', 'cc-lightbox--top');
+        topBar.setAttribute('class', 'bilderrahmen--top');
         wrapper.appendChild(topBar);
 
         // TITLEBAR
         const titleBar = document.createElement('div');
-        titleBar.setAttribute('class', 'cc-lightbox--top-title');
+        titleBar.setAttribute('class', 'bilderrahmen--top-title');
         titleBar.innerHTML = self._getImage(galleryId, index).title;
         topBar.appendChild(titleBar);
 
         // CLOSEBUTTON
         const closeButton = document.createElement('div');
-        closeButton.setAttribute('class', 'cc-lightbox--top-close');
+        closeButton.setAttribute('class', 'bilderrahmen--top-close');
         closeButton.onclick = () => self.closeIfOpen();
         topBar.appendChild(closeButton);
 
@@ -108,20 +108,20 @@ class CCImageLightbox {
 
         // IMAGE
         const image  = document.createElement('div');
-        image.setAttribute('class', 'cc-lightbox--image');
+        image.setAttribute('class', 'bilderrahmen--image');
         wrapper.appendChild(image);
         const imageInner = document.createElement('div');
-        imageInner.setAttribute('class', 'cc-lightbox--image-inner');
+        imageInner.setAttribute('class', 'bilderrahmen--image-inner');
         image.appendChild(imageInner);
         const imageInnerWrap = document.createElement('div');
-        imageInnerWrap.setAttribute('class', 'cc-lightbox--image-inner-wrap');
+        imageInnerWrap.setAttribute('class', 'bilderrahmen--image-inner-wrap');
         imageInner.appendChild(imageInnerWrap);
         const img = document.createElement('img');
         img.onload = function () {
-            image.setAttribute('class', 'cc-lightbox--image cc-lightbox--image-loaded');
+            image.setAttribute('class', 'bilderrahmen--image bilderrahmen--image-loaded');
         };
         img.setAttribute('src', self._getImage(galleryId, index).src);
-        img.setAttribute('class', 'cc-lightbox--image-img');
+        img.setAttribute('class', 'bilderrahmen--image-img');
         img.setAttribute('id', self._generateId(galleryId, index));
         imageInnerWrap.appendChild(img);
 
@@ -133,14 +133,14 @@ class CCImageLightbox {
 
     init() {
         const self = this;
-        const lightboxElements = document.querySelectorAll('[data-cc-lightbox]');
+        const lightboxElements = document.querySelectorAll('[data-bilderrahmen]');
 
         for (let i = 0; i < lightboxElements.length; i++) {
             const lightboxElement = lightboxElements[i];
-            const galleryId = lightboxElement.getAttribute('data-cc-lightbox');
+            const galleryId = lightboxElement.getAttribute('data-bilderrahmen');
             const nextIndex = self._getGallery(galleryId).length;
             const nextImage = self._getImage(galleryId, nextIndex);
-            nextImage.title = lightboxElement.getAttribute('data-cc-title');
+            nextImage.title = lightboxElement.getAttribute('data-bilderrahmen-title');
             nextImage.src = lightboxElement.parentNode.getAttribute('href');
 
             //
@@ -180,4 +180,4 @@ class CCImageLightbox {
     };
 };
 
-export default CCImageLightbox;
+export default Bilderrahmen;

@@ -1,3 +1,3 @@
-import CCImageLightbox from 'cc-image-lightbox';
+import Bilderrahmen from 'bilderrahmen';
 
-new CCImageLightbox();
+new Bilderrahmen();

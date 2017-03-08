@@ -6,13 +6,13 @@
     "type": "git",
     "url": "https://github.com/codeclou/bilderrahmen.git"
   },
-  "main": "./build/bilderrahmen.esm.js",
+  "main": "./dist/bilderrahmen.esm.js",
   "author": "codeclou",
   "license": "MIT",
   "scripts": {
     "build": "npm run build:browser && npm run build:module:esm",
     "build:browser": "webpack --config webpack.browser.config.js && MINIFY=1 webpack --optimize-minimize --config webpack.browser.config.js",
-    "build:module:esm": "cp src/bilderrahmen.js build/bilderrahmen.esm.js"
+    "build:module:esm": "cp src/bilderrahmen.js dist/bilderrahmen.esm.js"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
