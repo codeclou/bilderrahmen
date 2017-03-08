@@ -1,18 +1,18 @@
 {
-  "name": "cc-image-lightbox",
-  "version": "0.0.11",
+  "name": "bilderrahmen",
+  "version": "0.1.0",
   "description": "Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers",
   "repository": {
     "type": "git",
-    "url": "https://github.com/codeclou/cc-image-lightbox.git"
+    "url": "https://github.com/codeclou/bilderrahmen.git"
   },
-  "main": "./build/cc-image-lightbox.esm.js",
+  "main": "./build/bilderrahmen.esm.js",
   "author": "codeclou",
   "license": "MIT",
   "scripts": {
     "build": "npm run build:browser && npm run build:module:esm",
     "build:browser": "webpack --config webpack.browser.config.js && MINIFY=1 webpack --optimize-minimize --config webpack.browser.config.js",
-    "build:module:esm": "cp src/ccImageLightbox.js build/cc-image-lightbox.esm.js"
+    "build:module:esm": "cp src/bilderrahmen.js build/bilderrahmen.esm.js"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
