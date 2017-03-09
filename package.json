@@ -1,6 +1,6 @@
 {
   "name": "bilderrahmen",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers",
   "repository": {
     "type": "git",
