@@ -1,28 +1,32 @@
 {
   "name": "bilderrahmen",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers",
   "repository": {
     "type": "git",
     "url": "https://github.com/codeclou/bilderrahmen.git"
   },
-  "main": "./dist/bilderrahmen.esm.js",
+  "main": "./dist/bilderrahmen.js",
   "author": "codeclou",
   "license": "MIT",
   "scripts": {
-    "build": "npm run build:browser && npm run build:module:esm",
-    "build:browser": "webpack --config webpack.browser.config.js && MINIFY=1 webpack --optimize-minimize --config webpack.browser.config.js",
-    "build:module:esm": "cp src/bilderrahmen.js dist/bilderrahmen.esm.js"
+    "start": "./node_modules/.bin/ws -d ./ --port 7575",
+    "build": "npm run build:pre && npm run build:js:transpile && npm run build:js:minify && npm run build:js:esm && npm run build:css && npm run build:css:minify",
+    "build:pre": "rm -f dist/*",
+    "build:js:transpile": "babel src/bilderrahmen.js --out-file dist/bilderrahmen.js",
+    "build:js:minify": "uglifyjs  --compress --mangle --reserved 'Bilderrahmen' --comments --output dist/bilderrahmen.min.js  dist/bilderrahmen.js",
+    "build:js:esm": "cp src/bilderrahmen.js dist/bilderrahmen.esm.js",
+    "build:css": "cp src/bilderrahmen.css dist/bilderrahmen.css",
+    "build:css:minify": "cssnano src/bilderrahmen.css dist/bilderrahmen.min.css"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
-    "babel-core": "^6.23.1",
-    "babel-loader": "^6.3.0",
+    "babel-plugin-add-header-comment": "^1.0.3",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-es2015-modules-umd": "^6.23.0",
     "babel-preset-es2015": "^6.22.0",
-    "css-loader": "^0.26.1",
-    "extract-text-webpack-plugin": "^2.0.0-beta",
-    "style-loader": "^0.13.1",
-    "webpack": "^2.2.1"
+    "cssnano-cli": "^1.0.5",
+    "local-web-server": "^1.2.6",
+    "uglify-js": "^2.8.7"
   }
 }

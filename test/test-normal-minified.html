@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>bilderrahmen</title>
-
+    <link href="../dist/bilderrahmen.min.css" rel="stylesheet" />
 </head>
 <body>
 
-
+<h1>Test minified</h1>
 
 <h2>Demo Gallery #01</h2>
 
@@ -94,18 +94,9 @@
 /></a>
 
 
-<link href="https://unpkg.com/bilderrahmen@0.1.0/dist/bilderrahmen.min.css" rel="stylesheet" />
-<script src="https://cdn.rawgit.com/systemjs/systemjs/0.20.9/dist/system.js"></script>
+<script src="../dist/bilderrahmen.min.js"></script>
 <script>
-    SystemJS.config({
-        map: {
-            'plugin-babel': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/plugin-babel.js',
-            'systemjs-babel-build': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/systemjs-babel-browser.js',
-            'bilderrahmen': 'https://unpkg.com/bilderrahmen@0.1.0/dist/bilderrahmen.esm.js'
-        },
-        transpiler: 'plugin-babel'
-    });
-    SystemJS.import('./main.js');
+    new bilderrahmen({closeOnOutsideClick: true});
 </script>
 </body>
 </html>

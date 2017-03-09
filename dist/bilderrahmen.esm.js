@@ -1,12 +1,23 @@
+/*!
+ * @license MIT
+ * Copyright (c) 2017 Bernhard Grünewaldt
+ * https://github.com/codeclou/bilderrahmen
+ */
 class Bilderrahmen {
-    constructor() {
+    constructor(options) {
         this.store = {
             current: {
                 galleryId: null,
                 index: null
             },
-            galleries: []
+            galleries: [],
+            closeOnOutsideClick: false
         };
+        if (options !== undefined && options !== null) {
+            if (options.closeOnOutsideClick !== undefined && options.closeOnOutsideClick !== null && options.closeOnOutsideClick === true) {
+                this.store.closeOnOutsideClick = true;
+            }
+        }
         this.init();
     }
 
@@ -65,7 +76,8 @@ class Bilderrahmen {
         const self = this;
         const lightboxWrapper = document.getElementsByClassName('bilderrahmen-wrapper');
         if (lightboxWrapper[0] !== undefined && lightboxWrapper[0] !== null) {
-            lightboxWrapper[0].remove();
+            // IE11 does not support child.remove() but does child.parentNode.removeChild(child)
+            lightboxWrapper[0].parentNode.removeChild(lightboxWrapper[0]);
         }
         self._clearCurrentOpenImage();
     }
@@ -124,6 +136,16 @@ class Bilderrahmen {
         img.setAttribute('class', 'bilderrahmen--image-img');
         img.setAttribute('id', self._generateId(galleryId, index));
         imageInnerWrap.appendChild(img);
+
+        //
+        // CLOSE ON OUTSIDE CLICK
+        //
+        if (self.store.closeOnOutsideClick === true) {
+            imageInnerWrap.onclick = () => self.closeIfOpen();
+            img.addEventListener('click', function (e) {
+                e.stopPropagation( );
+            });
+        }
 
         // NEXT BUTTON
         wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, (indexInt + 1), 'right'));

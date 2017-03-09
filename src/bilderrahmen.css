@@ -1,3 +1,8 @@
+/*!
+ * @license MIT
+ * Copyright (c) 2017 Bernhard Grünewaldt
+ * https://github.com/codeclou/bilderrahmen
+ */
 .bilderrahmen-wrapper {
     position:fixed;
     top:0;
@@ -6,6 +11,11 @@
     height:100vh;
     background-color: rgba(0, 0, 0, 0.80);
     z-index:777777;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 .bilderrahmen--top {
     width:100vw;
