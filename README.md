@@ -2,14 +2,16 @@
 
 > Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers
 
-<p>&nbsp;</p>
+&nbsp;
 
 **:sparkles: [DEMO](https://codeclou.github.io/bilderrahmen/)**
 
 
-<p>&nbsp;</p>
+-----
 
-## Usage
+&nbsp;
+
+### Usage
 
 **Browser**
 
