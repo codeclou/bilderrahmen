@@ -6,6 +6,17 @@
 
 **:sparkles: [DEMO](https://codeclou.github.io/bilderrahmen/)**
 
+[![](https://codeclou.github.io/bilderrahmen/img/demo.gif)](https://codeclou.github.io/bilderrahmen/)
+
+
+### Features
+
+ * pure JavaScript, no dependencies
+ * Multiple-galleries per page supported
+ * minimal look
+ * Image title support
+ * responsive
+ * inline SVG buttons
 
 -----
 
