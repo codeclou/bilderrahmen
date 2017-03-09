@@ -8,13 +8,16 @@
 
 [![](https://codeclou.github.io/bilderrahmen/img/demo.gif)](https://codeclou.github.io/bilderrahmen/)
 
+-----
+
+&nbsp;
 
 ### Features
 
  * pure JavaScript, no dependencies
- * Multiple-galleries per page supported
+ * multiple galleries per page supported
  * minimal look
- * Image title support
+ * image title support
  * responsive
  * inline SVG buttons
 
