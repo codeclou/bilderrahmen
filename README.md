@@ -6,7 +6,9 @@
 
 **:sparkles: [DEMO](https://codeclou.github.io/bilderrahmen/)**
 
-[![](https://codeclou.github.io/bilderrahmen/img/demo.gif)](https://codeclou.github.io/bilderrahmen/)
+<p align="center">
+<a href="https://codeclou.github.io/bilderrahmen/"><img src="https://codeclou.github.io/bilderrahmen/img/demo.gif" width="80%"></a>
+</p>
 
 -----
 
