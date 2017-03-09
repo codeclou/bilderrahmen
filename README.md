@@ -13,7 +13,7 @@
 
 ### Usage
 
-**Browser**
+**Browser**: Use directly from CDN
 
 ```html
 <html>
@@ -38,7 +38,7 @@
 
 ----
 
-**UMD** use `bilderrahmen.js` as AMD or CommonJS module.
+**UMD**: Use `bilderrahmen.js` as AMD or CommonJS module.
 
 ```
 npm install bilderrahmen --save
@@ -57,7 +57,7 @@ Load css from `node_modules/bilderrahmen/dist/bilderrahmen.min.css`
 ----
 
 
-**ESM and SystemJS** use `bilderrahmen.esm.js` as ES-module and transpile it yourself with babel
+**ESM and SystemJS** use `bilderrahmen.esm.js` as ES6-module and transpile it yourself with babel
 
 ```html
 <html>
@@ -99,6 +99,7 @@ Works in all modern browsers and was tested in the following versions
 ![](https://codeclou.github.io/bilderrahmen/img/browser-support.svg?v2)
 
   
+Note: SVG loading animation will not work in IE11 or Edge due to poor SVG animation support.
 
 -----
 
