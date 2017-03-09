@@ -96,7 +96,7 @@ new Bilderrahmen({
 
 Works in all modern browsers and was tested in the following versions
 
-![](https://codeclou.github.io/bilderrahmen/img/supported-browsers.svg)
+![](https://codeclou.github.io/bilderrahmen/img/browser-support.svg?v2)
 
   
 
