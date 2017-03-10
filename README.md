@@ -22,8 +22,8 @@
  * image title support
  * responsive
  * inline SVG buttons
- * minified: js 3.6 KB css 0.6 KB total 4.2 KB
- * gzipped: js 1.4 KB css 0.3 KB total 1.7 KB
+ * minified: js 4.7 KB css 4.2 KB total 8.9 KB
+ * gzipped: js 1.5 KB css 2.0 KB total 3.5 KB
 
 
 -----
