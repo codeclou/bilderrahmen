@@ -17,7 +17,7 @@
     "build:js:minify": "uglifyjs  --compress --mangle --reserved 'Bilderrahmen' --comments --output dist/bilderrahmen.min.js  dist/bilderrahmen.js",
     "build:js:esm": "cp src/bilderrahmen.js dist/bilderrahmen.esm.js",
     "build:css": "cp src/bilderrahmen.css dist/bilderrahmen.css",
-    "build:css:minify": "cssnano src/bilderrahmen.css dist/bilderrahmen.min.css"
+    "build:css:minify": "cssnano --no-zindex src/bilderrahmen.css dist/bilderrahmen.min.css"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
