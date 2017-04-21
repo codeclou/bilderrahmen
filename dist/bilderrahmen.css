@@ -10,7 +10,7 @@
     width:100vw;
     height:100vh;
     background-color: rgba(0, 0, 0, 0.80);
-    z-index:777777;
+    z-index:777;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
