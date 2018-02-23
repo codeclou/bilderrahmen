@@ -182,35 +182,75 @@
                 // PREVIOUS BUTTON
                 wrapper.appendChild(self._renderNextOrPreviousButton(galleryId, indexInt - 1, 'left'));
 
+                var currentImageOrVideo = self._getImage(galleryId, index);
                 // IMAGE
-                var image = document.createElement('div');
-                image.setAttribute('class', 'bilderrahmen--image');
-                wrapper.appendChild(image);
-                var imageInner = document.createElement('div');
-                imageInner.setAttribute('class', 'bilderrahmen--image-inner');
-                image.appendChild(imageInner);
-                var imageInnerWrap = document.createElement('div');
-                imageInnerWrap.setAttribute('class', 'bilderrahmen--image-inner-wrap');
-                imageInner.appendChild(imageInnerWrap);
-                var img = document.createElement('img');
-                img.onload = function () {
-                    image.setAttribute('class', 'bilderrahmen--image bilderrahmen--image-loaded');
-                };
-                img.setAttribute('src', self._getImage(galleryId, index).src);
-                img.setAttribute('class', 'bilderrahmen--image-img');
-                img.setAttribute('id', self._generateId(galleryId, index));
-                imageInnerWrap.appendChild(img);
-
-                //
-                // CLOSE ON OUTSIDE CLICK
-                //
-                if (self.store.closeOnOutsideClick === true) {
-                    imageInnerWrap.onclick = function () {
-                        return self.closeIfOpen();
+                if (currentImageOrVideo.isVideo === false) {
+                    var image = document.createElement('div');
+                    image.setAttribute('class', 'bilderrahmen--image');
+                    wrapper.appendChild(image);
+                    var imageInner = document.createElement('div');
+                    imageInner.setAttribute('class', 'bilderrahmen--image-inner');
+                    image.appendChild(imageInner);
+                    var imageInnerWrap = document.createElement('div');
+                    imageInnerWrap.setAttribute('class', 'bilderrahmen--image-inner-wrap');
+                    imageInner.appendChild(imageInnerWrap);
+                    var img = document.createElement('img');
+                    img.onload = function () {
+                        image.setAttribute('class', 'bilderrahmen--image bilderrahmen--image-loaded');
                     };
-                    img.addEventListener('click', function (e) {
-                        e.stopPropagation();
-                    });
+                    img.setAttribute('src', self._getImage(galleryId, index).src);
+                    img.setAttribute('class', 'bilderrahmen--image-img');
+                    img.setAttribute('id', self._generateId(galleryId, index));
+                    imageInnerWrap.appendChild(img);
+                    //
+                    // CLOSE ON OUTSIDE CLICK
+                    //
+                    if (self.store.closeOnOutsideClick === true) {
+                        imageInnerWrap.onclick = function () {
+                            return self.closeIfOpen();
+                        };
+                        img.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                        });
+                    }
+                }
+
+                // VIDEO
+                if (currentImageOrVideo.isVideo === true) {
+                    var _image = document.createElement('div');
+                    _image.setAttribute('class', 'bilderrahmen--image');
+                    wrapper.appendChild(_image);
+                    var _imageInner = document.createElement('div');
+                    _imageInner.setAttribute('class', 'bilderrahmen--image-inner');
+                    _image.appendChild(_imageInner);
+                    var _imageInnerWrap = document.createElement('div');
+                    _imageInnerWrap.setAttribute('class', 'bilderrahmen--image-inner-wrap');
+                    _imageInner.appendChild(_imageInnerWrap);
+                    var video = document.createElement('video');
+                    video.onload = function () {
+                        _image.setAttribute('class', 'bilderrahmen--image bilderrahmen--image-loaded');
+                    };
+                    video.setAttribute('poster', currentImageOrVideo.poster);
+                    video.setAttribute('autoplay', '');
+                    video.setAttribute('controls', '');
+                    var source = document.createElement('source');
+                    source.setAttribute('src', currentImageOrVideo.src);
+                    source.setAttribute('type', 'video/mp4');
+                    video.appendChild(source);
+                    video.setAttribute('class', 'bilderrahmen--image-img');
+                    video.setAttribute('id', self._generateId(galleryId, index));
+                    _imageInnerWrap.appendChild(video);
+                    //
+                    // CLOSE ON OUTSIDE CLICK
+                    //
+                    if (self.store.closeOnOutsideClick === true) {
+                        _imageInnerWrap.onclick = function () {
+                            return self.closeIfOpen();
+                        };
+                        video.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                        });
+                    }
                 }
 
                 // NEXT BUTTON
@@ -230,7 +270,15 @@
                     var nextIndex = self._getGallery(galleryId).length;
                     var nextImage = self._getImage(galleryId, nextIndex);
                     nextImage.title = lightboxElement.getAttribute('data-bilderrahmen-title');
-                    nextImage.src = lightboxElement.parentNode.getAttribute('href');
+                    if (lightboxElement.getAttribute('data-bilderrahmen-video')) {
+                        nextImage.src = lightboxElement.getAttribute('data-bilderrahmen-video');
+                        nextImage.poster = lightboxElement.getAttribute('src');
+                        nextImage.isVideo = true;
+                    } else {
+                        nextImage.src = lightboxElement.parentNode.getAttribute('href');
+                        nextImage.poster = null;
+                        nextImage.isVideo = false;
+                    }
 
                     //
                     // THUMBNAIL CLICK OPENS LIGHTBOX

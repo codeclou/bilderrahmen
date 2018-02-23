@@ -22,6 +22,7 @@
  * image title support
  * responsive
  * inline SVG buttons
+ * MP4 video support (HTML 5 video)
  * minified: js 4.7 KB css 4.2 KB total 8.9 KB
  * gzipped: js 1.5 KB css 2.0 KB total 3.5 KB
 
@@ -37,15 +38,24 @@
 ```html
 <html>
 <body>
-  <link href="https://unpkg.com/bilderrahmen@0.2.2/dist/bilderrahmen.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/bilderrahmen@0.3.0/dist/bilderrahmen.min.css" rel="stylesheet" />
 
   <a href="https://codeclou.github.io/bilderrahmen/demo/demo-gallery-02/images/DSC05104.JPG" target="_blank"><img
         src="https://codeclou.github.io/bilderrahmen/demo/demo-gallery-02/thumbs/DSC05104.JPG"
         data-bilderrahmen="gallery-02"
         data-bilderrahmen-title="Image Four"
   /></a>
+  
+  <!-- Video only supports MP4 and one video source! -->
+  <a href="https://codeclou.github.io/bilderrahmen/demo/demo-videos/demo-720p.mp4" target="_blank"><img
+          src="https://codeclou.github.io/bilderrahmen/demo/demo-videos/demo-720p-poster.jpg"
+          style="width:200px;border:1px solid #ccc"
+          data-bilderrahmen-video="https://codeclou.github.io/bilderrahmen/demo/demo-videos/demo-720p.mp4"
+          data-bilderrahmen="gallery-02"
+          data-bilderrahmen-title="Video One"
+  /></a>
 
-  <script src="https://unpkg.com/bilderrahmen@0.2.2/dist/bilderrahmen.min.js"></script>
+  <script src="https://unpkg.com/bilderrahmen@0.3.0/dist/bilderrahmen.min.js"></script>
   <script>
       new bilderrahmen({
           closeOnOutsideClick: true
@@ -81,14 +91,14 @@ Load css from `node_modules/bilderrahmen/dist/bilderrahmen.min.css`
 ```html
 <html>
 <body>
-<link href="https://unpkg.com/bilderrahmen@0.2.2/dist/bilderrahmen.min.css" rel="stylesheet" />
+<link href="https://unpkg.com/bilderrahmen@0.3.0/dist/bilderrahmen.min.css" rel="stylesheet" />
 <script src="https://cdn.rawgit.com/systemjs/systemjs/0.20.9/dist/system.js"></script>
 <script>
     SystemJS.config({
         map: {
             'plugin-babel': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/plugin-babel.js',
             'systemjs-babel-build': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/systemjs-babel-browser.js',
-            'bilderrahmen': 'https://unpkg.com/bilderrahmen@0.2.2/dist/bilderrahmen.esm.js'
+            'bilderrahmen': 'https://unpkg.com/bilderrahmen@0.3.0/dist/bilderrahmen.esm.js'
         },
         transpiler: 'plugin-babel'
     });
