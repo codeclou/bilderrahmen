@@ -1,3 +1,5 @@
 .editorconfig
 .gitignore
 test
+.idea
+yarn.lock
