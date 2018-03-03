@@ -38,7 +38,7 @@
 ```html
 <html>
 <body>
-  <link href="https://unpkg.com/bilderrahmen@0.3.0/dist/bilderrahmen.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bilderrahmen@0.3.1/dist/bilderrahmen.min.css" rel="stylesheet" />
 
   <a href="https://codeclou.github.io/bilderrahmen/demo/demo-gallery-02/images/DSC05104.JPG" target="_blank"><img
         src="https://codeclou.github.io/bilderrahmen/demo/demo-gallery-02/thumbs/DSC05104.JPG"
@@ -55,7 +55,7 @@
           data-bilderrahmen-title="Video One"
   /></a>
 
-  <script src="https://unpkg.com/bilderrahmen@0.3.0/dist/bilderrahmen.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bilderrahmen@0.3.1/dist/bilderrahmen.min.js"></script>
   <script>
       new bilderrahmen({
           closeOnOutsideClick: true
@@ -91,14 +91,14 @@ Load css from `node_modules/bilderrahmen/dist/bilderrahmen.min.css`
 ```html
 <html>
 <body>
-<link href="https://unpkg.com/bilderrahmen@0.3.0/dist/bilderrahmen.min.css" rel="stylesheet" />
-<script src="https://cdn.rawgit.com/systemjs/systemjs/0.20.9/dist/system.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bilderrahmen@0.3.1/dist/bilderrahmen.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/systemjs@0.21.0/dist/system.js"></script>
 <script>
     SystemJS.config({
         map: {
-            'plugin-babel': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/plugin-babel.js',
-            'systemjs-babel-build': 'https://cdn.rawgit.com/systemjs/plugin-babel/0.0.21/systemjs-babel-browser.js',
-            'bilderrahmen': 'https://unpkg.com/bilderrahmen@0.3.0/dist/bilderrahmen.esm.js'
+            'plugin-babel': 'https://cdn.jsdelivr.net/npm/systemjs-plugin-babel@0.0.25/plugin-babel.js',
+            'systemjs-babel-build': 'https://cdn.jsdelivr.net/npm/systemjs-plugin-babel@0.0.25/systemjs-babel-browser.js',
+            'bilderrahmen': 'https://cdn.jsdelivr.net/npm/bilderrahmen@0.3.1/dist/bilderrahmen.esm.js'
         },
         transpiler: 'plugin-babel'
     });
