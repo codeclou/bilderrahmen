@@ -27,7 +27,8 @@ pipelineHelper.nodejsTemplate {
   stage('download dependencies') {
     if(doBuild) {
       dir('source') {
-        sh 'NODE_TLS_REJECT_UNAUTHORIZED=0 yarn'
+        sh 'echo "strict-ssl false" > ~/.yarnrc'
+        sh 'yarn'
       }
     } else {
        echo 'Skipped'
