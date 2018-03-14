@@ -38,7 +38,7 @@
 ```html
 <html>
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/bilderrahmen@1.0.0/dist/bilderrahmen.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bilderrahmen@1.0.0/bilderrahmen.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/gh/requirejs/requirejs@2.3.5/require.js"></script>
 </head>
 <body>
@@ -60,7 +60,7 @@
   /></a>
 
   <script>
-    require(['https://cdn.jsdelivr.net/npm/bilderrahmen@1.0.0/dist/dist/bilderrahmen.umd.es5.js'], function(module) {
+    require(['https://cdn.jsdelivr.net/npm/bilderrahmen@1.0.0/bilderrahmen.umd.es5.js'], function(module) {
         new module.Bilderrahmen({ closeOnOutsideClick: true });
     });
   </script>
