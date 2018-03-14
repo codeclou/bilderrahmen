@@ -3,7 +3,9 @@
  * Copyright (c) 2017 - 2018 Bernhard Grünewaldt
  * https://github.com/codeclou/bilderrahmen
  */
-class Bilderrahmen {
+export class Bilderrahmen {
+    store: any;
+
     constructor(options) {
         this.store = {
             current: {
@@ -19,6 +21,14 @@ class Bilderrahmen {
             }
         }
         this.init();
+    }
+
+    __stopDefaultEvent(evt) {
+        if (evt && evt.preventDefault) {
+            evt.preventDefault();
+        } else if (window.event && window.event.returnValue) {
+            window.event.returnValue = false;
+        }
     }
 
     _setCurrentOpenImage(galleryId, index) {
@@ -143,8 +153,8 @@ class Bilderrahmen {
             //
             if (self.store.closeOnOutsideClick === true) {
                 imageInnerWrap.onclick = () => self.closeIfOpen();
-                img.addEventListener('click', function (e) {
-                    e.stopPropagation( );
+                img.addEventListener('click', (event) => {
+                    return self.__stopDefaultEvent(event);
                 });
             }
         }
@@ -179,8 +189,8 @@ class Bilderrahmen {
             //
             if (self.store.closeOnOutsideClick === true) {
                 imageInnerWrap.onclick = () => self.closeIfOpen();
-                video.addEventListener('click', function (e) {
-                    e.stopPropagation( );
+                video.addEventListener('click', (event) => {
+                    return self.__stopDefaultEvent(event);
                 });
             }
         }
@@ -193,6 +203,7 @@ class Bilderrahmen {
     }
 
     init() {
+        console.log('Bilderrahmen init()');
         const self = this;
         const lightboxElements = document.querySelectorAll('[data-bilderrahmen]');
 
@@ -202,12 +213,13 @@ class Bilderrahmen {
             const nextIndex = self._getGallery(galleryId).length;
             const nextImage = self._getImage(galleryId, nextIndex);
             nextImage.title = lightboxElement.getAttribute('data-bilderrahmen-title');
+            const parentNode = <Element>lightboxElement.parentNode;
             if (lightboxElement.getAttribute('data-bilderrahmen-video')) {
                 nextImage.src = lightboxElement.getAttribute('data-bilderrahmen-video');
                 nextImage.poster = lightboxElement.getAttribute('src');
                 nextImage.isVideo = true;
             } else {
-                nextImage.src = lightboxElement.parentNode.getAttribute('href');
+                nextImage.src = parentNode.getAttribute('href');
                 nextImage.poster = null;
                 nextImage.isVideo = false;
             }
@@ -215,10 +227,10 @@ class Bilderrahmen {
             //
             // THUMBNAIL CLICK OPENS LIGHTBOX
             //
-            lightboxElement.parentNode.onclick = () => {
+            parentNode.addEventListener('click', (event) => {
                 self.open(galleryId, nextIndex);
-                return false;
-            };
+                return self.__stopDefaultEvent(event);
+            });
         }
 
         //
@@ -248,5 +260,3 @@ class Bilderrahmen {
 
     };
 };
-
-export default Bilderrahmen;

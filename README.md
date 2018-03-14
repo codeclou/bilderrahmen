@@ -33,19 +33,23 @@
 
 ### Usage
 
-**Browser**: Use directly from CDN
+**Browser**: Use directly from CDN with [RequireJS](http://requirejs.org/).
 
 ```html
 <html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bilderrahmen@1.0.0/dist/bilderrahmen.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/gh/requirejs/requirejs@2.3.5/require.js"></script>
+</head>
 <body>
-  <link href="https://cdn.jsdelivr.net/npm/bilderrahmen@0.3.1/dist/bilderrahmen.min.css" rel="stylesheet" />
+
 
   <a href="https://codeclou.github.io/bilderrahmen/demo/demo-gallery-02/images/DSC05104.JPG" target="_blank"><img
         src="https://codeclou.github.io/bilderrahmen/demo/demo-gallery-02/thumbs/DSC05104.JPG"
         data-bilderrahmen="gallery-02"
         data-bilderrahmen-title="Image Four"
   /></a>
-  
+
   <!-- Video only supports MP4 and one video source! -->
   <a href="https://codeclou.github.io/bilderrahmen/demo/demo-videos/demo-720p.mp4" target="_blank"><img
           src="https://codeclou.github.io/bilderrahmen/demo/demo-videos/demo-720p-poster.jpg"
@@ -55,11 +59,10 @@
           data-bilderrahmen-title="Video One"
   /></a>
 
-  <script src="https://cdn.jsdelivr.net/npm/bilderrahmen@0.3.1/dist/bilderrahmen.min.js"></script>
   <script>
-      new bilderrahmen({
-          closeOnOutsideClick: true
-      });
+    require(['https://cdn.jsdelivr.net/npm/bilderrahmen@1.0.0/dist/dist/bilderrahmen.umd.es5.js'], function(module) {
+        new module.Bilderrahmen({ closeOnOutsideClick: true });
+    });
   </script>
 </body>
 </html>
@@ -67,14 +70,14 @@
 
 ----
 
-**UMD**: Use `bilderrahmen.js` as AMD or CommonJS module.
+**UMD**: Use `bilderrahmen.umd.es5.js` as AMD or CommonJS module.
 
 ```
 npm install bilderrahmen --save
 ```
 
 ```js
-var Bilderrahmen = require('bilderrahmen');
+var Bilderrahmen = require('bilderrahmen').Bilderrahmen;
 
 new Bilderrahmen({
    closeOnOutsideClick: true
@@ -83,39 +86,27 @@ new Bilderrahmen({
 
 Load css from `node_modules/bilderrahmen/dist/bilderrahmen.min.css`
 
-----
+-----
 
 
-**ESM and SystemJS** use `bilderrahmen.esm.js` as ES6-module and transpile it yourself with babel
+**ES5/ES2015**: Use `bilderrahmen.es2015.es5.js` or `bilderrahmen.es2015.es2015.js` as ES-Module.
 
-```html
-<html>
-<body>
-<link href="https://cdn.jsdelivr.net/npm/bilderrahmen@0.3.1/dist/bilderrahmen.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/systemjs@0.21.0/dist/system.js"></script>
-<script>
-    SystemJS.config({
-        map: {
-            'plugin-babel': 'https://cdn.jsdelivr.net/npm/systemjs-plugin-babel@0.0.25/plugin-babel.js',
-            'systemjs-babel-build': 'https://cdn.jsdelivr.net/npm/systemjs-plugin-babel@0.0.25/systemjs-babel-browser.js',
-            'bilderrahmen': 'https://cdn.jsdelivr.net/npm/bilderrahmen@0.3.1/dist/bilderrahmen.esm.js'
-        },
-        transpiler: 'plugin-babel'
-    });
-    SystemJS.import('./main.js');
-</script>
-</body>
-</html>
+```
+npm install bilderrahmen --save
 ```
 
-`main.js`
 ```js
-import Bilderrahmen from 'bilderrahmen';
+import { Bilderrahmen } from 'bilderrahmen';
 
 new Bilderrahmen({
    closeOnOutsideClick: true
 });
 ```
+
+Note that depending on your buildchain language target files are automatically loaded by [`package.json` convention](./build-package-json-template.json).
+
+Load css from `node_modules/bilderrahmen/dist/bilderrahmen.min.css`
+
 -----
 
 &nbsp;
@@ -127,7 +118,7 @@ Works in all modern browsers and was tested in the following versions
 
 ![](https://codeclou.github.io/bilderrahmen/img/browser-support.svg?v2)
 
-  
+
 Note: SVG loading animation will not work in IE11 or Edge due to poor SVG animation support.
 
 -----
@@ -147,4 +138,4 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md)
 ## License
 
 [MIT](./LICENSE) © [Bernhard Grünewaldt](https://github.com/clouless)
-  
+
