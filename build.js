@@ -3,7 +3,7 @@
 /*!
  * @license MIT
  * Copyright (c) 2017 Bernhard Grünewaldt - codeclou.io
- * https://github.com/cloukit/legal
+ * https://github.com/codelcou/bilderrahmen
  */
 const shell = require('shelljs');
 const fs = require('fs');

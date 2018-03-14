@@ -11,6 +11,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run build && ./node_modules/.bin/ws -d ./ --port 7575",
+    "test": "echo \"ok\"",
     "build": "node build.js"
   },
   "devDependencies": {
