@@ -16,7 +16,7 @@ pipelineHelper.nodejsTemplate {
   }
   stage('git clone') {
     if(doBuild) {
-      sh 'git clone --single-branch --branch $GWBT_BRANCH$GWBT_TAG https://${GITHUB_AUTH_TOKEN}@github.com/${GWBT_REPO_FULL_NAME}.git source'
+      sh 'git clone --single-branch --branch $GWBT_BRANCH$GWBT_TAG https://${SECRET_GITHUB_AUTH_TOKEN}@github.com/${GWBT_REPO_FULL_NAME}.git source'
       dir ('source') {
         sh 'git reset --hard $GWBT_COMMIT_AFTER'
       }
@@ -70,7 +70,7 @@ pipelineHelper.nodejsTemplate {
     if(env.GWBT_TAG) {
       dir('source') {
         dir('dist') {
-          sh 'echo "//registry.npmjs.org/:_password=${NPMJS_PASSWORD}" > ~/.npmrc'
+          sh 'echo "//registry.npmjs.org/:_password=${SECRET_NPMJS_PASSWORD}" > ~/.npmrc'
           sh 'echo "//registry.npmjs.org/:username=${NPMJS_USERNAME}" >> ~/.npmrc'
           sh 'echo "//registry.npmjs.org/:email=${NPMJS_EMAIL}" >> ~/.npmrc'
           sh 'echo "//registry.npmjs.org/:always-auth=false" >> ~/.npmrc'
