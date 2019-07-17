@@ -1,4 +1,4 @@
-[![](https://codeclou.github.io/bilderrahmen/img/bilderrahmen-logo.svg)](https://github.com/codeclou/bilderrahmen)
+[![](https://codeclou.github.io/bilderrahmen/img/github-product-logo-bilderrahmen.png)](https://github.com/codeclou/bilderrahmen)
 
 > Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers
 
