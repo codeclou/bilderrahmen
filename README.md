@@ -1,14 +1,8 @@
+# Bilderrahmen
+
+> Lightweight vanilla-JS image lightbox for minimalists crafted with CSS3 and inline SVG icons for modern browsers.
+
 [![](https://codeclou.github.io/bilderrahmen/img/github-product-logo-bilderrahmen.png)](https://github.com/codeclou/bilderrahmen)
-
-> Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers
-
-&nbsp;
-
-**:sparkles: [DEMO](https://codeclou.github.io/bilderrahmen/)**
-
-<p align="center">
-<a href="https://codeclou.github.io/bilderrahmen/"><img src="https://codeclou.github.io/bilderrahmen/img/demo.gif" width="80%"></a>
-</p>
 
 -----
 
@@ -26,6 +20,16 @@
  * minified: js 4.7 KB css 4.2 KB total 8.9 KB
  * gzipped: js 1.5 KB css 2.0 KB total 3.5 KB
 
+
+-----
+
+&nbsp;
+
+**:sparkles: [DEMO](https://codeclou.github.io/bilderrahmen/)**
+
+<p align="center">
+<a href="https://codeclou.github.io/bilderrahmen/"><img src="https://codeclou.github.io/bilderrahmen/img/demo.gif" width="80%"></a>
+</p>
 
 -----
 
