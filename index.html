@@ -2,30 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="robots" content="noindex">
     <title>Bilderrahmen</title>
-    <link href="https://codeclou.io/codeclou-eu-privacy-proxy/index.php/cdn.jsdelivr.net/npm/bilderrahmen@1.0.0/bilderrahmen.css" rel="stylesheet" />
+    <link href="https://codeclou.io/codeclou-eu-privacy-proxy/index.php/cdn.jsdelivr.net/npm/bilderrahmen@1.0.1/bilderrahmen.css" rel="stylesheet" />
     <script src="https://codeclou.io/codeclou-eu-privacy-proxy/index.php/cdn.jsdelivr.net/gh/requirejs/requirejs@2.3.5/require.js"></script>
     <style>
         .cc-wrapper {
-            width:80%;
-            margin:auto;
+            width:700px;
+            margin:0 auto;
             padding-top:40px;
-            padding-bottom:200px;
         }
         .cc-thumb {
             width:200px;
-            border:5px solid #654000;
             margin:20px;
+            border-bottom: 4px solid #fff;
+            border-right: 4px solid #fff;
         }
         .cc-thumb:hover {
-            border-color:#8C6015;
+            border-bottom: 4px solid #FF8126;
+            border-right: 4px solid #FF8126;
+        }
+        h1 {
+            color:#000;
+            font-weight:400;
         }
         h2 {
-            color:#654000;
+            color:#000;
+            font-weight:400;
+        }
+        a {
+            color: #D95019;
+        }
+        a:hover {
+            color: #FF8126;
         }
         body {
             font-family: 'Helvetica Neue', 'Open Sans', 'Source Sans Pro', Arial, sans-serif;
             font-weight:normal;
+        }
+        .footer {
+            margin-top:400px;
+            text-align: center;
+            font-size:14px;
         }
     </style>
     <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico">
@@ -33,7 +51,20 @@
 </head>
 <body>
 <div class="cc-wrapper">
-<a href="https://github.com/codeclou/bilderrahmen"><img src="./img/bilderrahmen-logo.svg" style="width:100%;" /></a>
+
+<h1>Bilderrahmen</h1>
+
+<p class="quote">Lightweight vanilla-JS image lightbox for minimalists crafted with CSS3 and inline SVG icons for modern browsers.</p>
+
+<a href="https://github.com/codeclou/bilderrahmen"><img src="./img/github-product-logo-bilderrahmen.png" style="width:100%;" /></a>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<h2>Usage</h2>
+
+<p>See <a href="https://github.com/codeclou/bilderrahmen">instructions on GitHub</a></p>
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -75,16 +106,28 @@
 
 <a href="https://codeclou.github.io/bilderrahmen/demo/demo-videos/demo-720p.mp4" target="_blank"><img
         src="https://codeclou.github.io/bilderrahmen/demo/demo-videos/demo-720p-poster.jpg"
-        style="width:200px;border:1px solid #ccc"
+        class="cc-thumb"
         data-bilderrahmen-video="https://codeclou.github.io/bilderrahmen/demo/demo-videos/demo-720p.mp4"
         data-bilderrahmen="gallery-02"
         data-bilderrahmen-title="Video One"
 /></a>
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<h2>License</h2>
+
+<a href="https://github.com/codeclou/bilderrahmen/blob/master/LICENSE">MIT</a> © <a href="https://github.com/clouless">Bernhard Grünewaldt</a> 
+
+
+<div class="footer">
+    <a rel="nofollow" href="https://codeclou.io/legal/impressum-en/">Legal Notice</a> · <a href="https://codeclou.io/legal/datenschutz-en/">Data Privacy Statement</a>
+</div>
+
 
 </div>
 <script>
-require(['https://codeclou.io/codeclou-eu-privacy-proxy/index.php/cdn.jsdelivr.net/npm/bilderrahmen@1.0.0/bilderrahmen.umd.es5.js'], function(module) {
+require(['https://codeclou.io/codeclou-eu-privacy-proxy/index.php/cdn.jsdelivr.net/npm/bilderrahmen@1.0.1/bilderrahmen.umd.es5.js'], function(module) {
     new module.Bilderrahmen({ closeOnOutsideClick: true });
 });
 </script>
