@@ -28,7 +28,7 @@
 **:sparkles: [DEMO](https://codeclou.github.io/bilderrahmen/)**
 
 <p align="center">
-<a href="https://codeclou.github.io/bilderrahmen/"><img src="https://codeclou.github.io/bilderrahmen/img/demo.gif" width="80%"></a>
+<a href="https://codeclou.github.io/bilderrahmen/"><img src="https://codeclou.github.io/bilderrahmen/img/demo-v2.gif" width="80%"></a>
 </p>
 
 -----
