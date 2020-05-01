@@ -1,7 +1,7 @@
 # Development
 
-
 **Start**
+
 ```
 npm install
 npm start
@@ -9,8 +9,7 @@ npm start
 
 Goto
 
- * [http://localhost:7575/test/](http://localhost:7575/test/)
-
+- [http://localhost:7575/test/](http://localhost:7575/test/)
 
 &nbsp;
 
@@ -18,8 +17,8 @@ Goto
 
 **Howto Publish to npmjs.org**
 
-:bangbang: DONE BY JENKINS ON TAGGED VERSIONS
+:bangbang: DONE BY GITHUB ACTIONS ON TAGGED VERSIONS
 
- * (1) Create a new Release and Tag on GitHub (Web-Gui)
- * (2) Jenkins Job triggers `npm run build`
- * (3) Jenkins deployes tags to npmjs (dist dir)
+- (1) Create a new Release and Tag on GitHub (Web-Gui)
+- (2) GitHub Actions triggers `npm run build`
+- (3) GitHub Action deployes tags to npmjs (dist dir)
