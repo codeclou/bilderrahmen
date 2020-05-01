@@ -1,6 +1,6 @@
 {
   "name": "bilderrahmen",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "description": "Lightweight vanilla-JS image lightbox crafted with CSS3 and inline SVG icons for modern browsers",
   "repository": {
@@ -15,11 +15,12 @@
     "build": "node build.js"
   },
   "devDependencies": {
-    "cssnano-cli": "^1.0.5",
-    "local-web-server": "^1.2.6",
-    "shelljs": "^0.8.1",
-    "ts-node": "^5.0.1",
-    "typescript": "^2.7.2",
-    "uglify-js": "^2.8.7"
+    "postcss-cli": "^7.1.1",
+    "cssnano": "^4.1.10",
+    "local-web-server": "^4.0.0",
+    "shelljs": "^0.8.4",
+    "ts-node": "^8.9.0",
+    "typescript": "^3.8.3",
+    "uglify-js": "^3.9.1"
   }
 }

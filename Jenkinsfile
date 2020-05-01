@@ -6,7 +6,7 @@ stage('branch check') {
         doBuild = false
     }
 }
-pipelineHelper.nodejsTemplate {
+pipelineHelper.nodejsTemplateNode12LTS {
   stage('prepare tools') {
     if(doBuild) {
       pipelineHelper.npmWriteClientConfig()
