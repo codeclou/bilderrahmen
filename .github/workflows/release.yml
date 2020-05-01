@@ -22,5 +22,6 @@ jobs:
           NPMJS_PASSWORD: ${{ secrets.NPMJS_PASSWORD }}
           NPMJS_USERNAME: ${{ secrets.NPMJS_USERNAME }}
           NPMJS_EMAIL: ${{ secrets.NPMJS_EMAIL }}
-      - name: publush release to npm registry
+      - name: publish release to npm registry
         run: npm --registry https://registry.npmjs.org/ --access public publish
+        working-directory: dist
