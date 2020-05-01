@@ -10,10 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 12 LTS
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
-          version: 12
+          node-version: '12.x'
       - name: install app dependencies
         run: npm install
       - name: build app
