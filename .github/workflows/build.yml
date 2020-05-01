@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    tags:
-      - '*'
 
 jobs:
   build:
@@ -20,11 +18,3 @@ jobs:
         run: npm install
       - name: build app
         run: npm run build
-      - name: write npmrc config with publush credentials
-        run: bash .github/write-npmrc.sh
-        env:
-          NPMJS_PASSWORD: ${{ secrets.NPMJS_PASSWORD }}
-          NPMJS_USERNAME: ${{ secrets.NPMJS_USERNAME }}
-          NPMJS_EMAIL: ${{ secrets.NPMJS_EMAIL }}
-      - if: contains(github.ref, "release")
-        run: npm --registry https://registry.npmjs.org/ --access public publish
