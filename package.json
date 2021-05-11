@@ -15,7 +15,8 @@
     "build": "node build.js"
   },
   "devDependencies": {
-    "postcss-cli": "^7.1.1",
+    "postcss-cli": "^8.0.0",
+    "postcss": ">=8.2.10",
     "cssnano": "^4.1.10",
     "local-web-server": "^4.0.0",
     "shelljs": "^0.8.4",
